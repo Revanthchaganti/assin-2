@@ -10,13 +10,16 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout repository
-      uses: actions/checkout@v2
+      - name: Checkout repository
+        uses: actions/checkout@v2
 
-    - name: Set up Java
-      uses: actions/setup-java@v2
-      with:
-        java-version: '11'
+      - name: Set up Java
+        uses: actions/setup-java@v2
+        with:
+          distribution: 'adopt'
 
-    - name: Execute JAR file
-      run: java -jar path/to/your/jar-file.jar
+      - name: Build and execute JAR file
+        run: |
+          ./gradlew build
+          java -jar path/to/your/jar-file.jar
+
