@@ -21,6 +21,7 @@ jobs:
 
       - name: Build with Maven
         run: mvn clean package
+        working-directory: ./assin-2
 
       - name: Initialize CodeQL
         uses: github/codeql-action/init@v1
